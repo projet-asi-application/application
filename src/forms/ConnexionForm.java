@@ -1,11 +1,13 @@
 package forms;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
 import beans.Utilisateur;
+import bdd.JDBC;
 
 public final class ConnexionForm {
     private static final String CHAMP_LOGIN  = "login";
@@ -84,12 +86,7 @@ public final class ConnexionForm {
     /*
      * Vérifie login et mdp.
      */
-    private void verification( String login, String motDePasse ) throws Exception {
-    	if (login.equals("abc") && motDePasse.equals("123")) {}
-    	else {
-    		throw new Exception( "Login ou mdp erroné" );
-    	}
-    }
+    
 
     /*
      * Ajoute un message correspondant au champ spécifié à la map des erreurs.
@@ -110,5 +107,16 @@ public final class ConnexionForm {
         } else {
             return valeur;
         }
+    }
+    
+    private void verification( String login, String motDePasse ) throws Exception {
+    	JDBC test = new JDBC();
+        //List<String> messages = test.executerTests( request );
+    	boolean result = test.connection(login, motDePasse);
+    	System.out.println(result);
+    	if (result) {}
+    	else {
+    		throw new Exception( "Login ou mdp erroné" );
+    		}
     }
 }

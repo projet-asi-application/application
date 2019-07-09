@@ -8,6 +8,7 @@
     </head>
     <body>
     	<c:import url="/WEB-INF/deconnexion.jsp" />
+    	<p><a href="<c:url value="/listeeleves"/>">Afficher la liste des eleves</a></p>
         <p>Bienvenue sur votre page.</p>
     </body>
 </html>

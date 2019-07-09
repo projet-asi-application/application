@@ -41,4 +41,14 @@
 	<url-pattern>/*</url-pattern>
 	</filter-mapping>
 
+
+	<servlet>
+	<servlet-name>ListeEleves</servlet-name>
+	<servlet-class>servlets.ListeEleves</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+	<servlet-name>ListeEleves</servlet-name>
+	<url-pattern>/listeeleves</url-pattern>
+	</servlet-mapping>
 </web-app>
